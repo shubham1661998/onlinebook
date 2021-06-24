@@ -47,7 +47,7 @@ public class openbook extends HttpServlet {
 				sos=res.getOutputStream();
 				
 				sos.write(bstore); //error in this line
-				System.out.println("Error1");
+				
 		}
 		catch(Exception e)
 		{

@@ -26,7 +26,9 @@ public class loginservlet extends HttpServlet {
 	    if(t==userid)
 	    {
 	    	 session.setAttribute("loginemail", t);
-	    	res.sendRedirect("infodisplay.jsp");
+	    	// req.getRequestDispatcher("infodisplay").forward(req, res);
+	    	 res.sendRedirect("infodisplay.jsp");
+	    	
 	    	
 	    }
 	    else if(t=="a")

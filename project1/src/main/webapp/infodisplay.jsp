@@ -1,15 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-  <%@page import="jdbcconnection.Database,java.sql.*,java.io.*,java.io.File" %>
- <%!
- Connection con;
- Statement stmt;
- PreparedStatement pstmt;
- ResultSet set;
- byte[] imstore=null;
-ServletOutputStream sos=null;
-InputStream is;
- %>
+    <%@ page import="project1.infodisplay" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,37 +15,16 @@ InputStream is;
     <h1 class="hed">My Profile</h1>
     <h2>Your Collection</h2>
     <div>
-<%
-		 String loginemail=(String)session.getAttribute("loginemail");
-		 System.out.println("LoginEmail:"+loginemail);	
-		 try
-		 {
-				 
-			 	Class.forName("com.mysql.cj.jdbc.Driver");
-				 String url="jdbc:mysql://localhost:3306/project1";
-				 con=DriverManager.getConnection(url,"root","");
-				 String query="select bool_name from books where e_mail=? limit 5";
-				pstmt=con.prepareStatement(query);
-				pstmt.setString(1,loginemail);
-				set=pstmt.executeQuery();
-				
-				while(set.next())
-				{
-					String name=set.getString("bool_name");
-					out.println(name); 
-				}		 				
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
- 
-%>
-	<form action="openbook" method="post">
-	<label>____________________________</label>
-	<input placeholder="enter book name to open" type="text" name="bname">
-	<input type="submit" value="open Book">
-	</form>
+    	<% infodisplay id=new infodisplay();
+    		id.display(request,response);%>
+    		<p><%out.print(session.getAttribute("bnd"));%></p>
+    		<p> <%//System.out.println(session.getAttribute("bnd"));%> </p>
+    	
+			<form action="openbook" method="post">
+			<label>____________________________</label>
+			<input placeholder="enter book name to open" type="text" name="bname">
+			<input type="submit" value="open Book">
+			</form>
     
     </div>
   </div>

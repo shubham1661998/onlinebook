@@ -170,9 +170,11 @@ public class Database {
 			
 			e.printStackTrace();
 			return 0;
-		}
-		
-		
+		}	
+	  }
+	public String Loginemail()
+	{
+		return loginemail;
 	}
 }
 	

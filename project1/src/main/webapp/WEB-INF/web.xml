@@ -67,5 +67,13 @@
   	<url-pattern>/openbook</url-pattern>
   </servlet-mapping>
  
+ <servlet>
+  	<servlet-name>infodisplay</servlet-name>
+  	<servlet-class>project1.infodisplay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>infodisplay</servlet-name>
+  	<url-pattern>/infodisplay</url-pattern>
+  </servlet-mapping>
   
 </web-app>
