@@ -9,14 +9,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import jdbcconnection.Database;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-public class infodisplay extends HttpServlet {
-	public void display(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
+public class infodisplay extends HttpServlet{
+	public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
 	{
 		Connection con;
 		PreparedStatement pstmt;
@@ -39,10 +40,9 @@ public class infodisplay extends HttpServlet {
 				String name=set.getString("bool_name");
 				bname.add(name);
 			}
-			//System.out.println(bname);
-			HttpSession session=req.getSession();
-			req.setAttribute("bnd", bname);
-	
+			System.out.println(bname);
+			req.setAttribute("bname",bname);
+			//req.getRequestDispatcher("infodisplay.jsp").forward(req, res);
 		}
 		catch(Exception e)
 		{

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="project1.infodisplay" %>
+    <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,11 +15,8 @@
     <h1 class="hed">My Profile</h1>
     <h2>Your Collection</h2>
     <div>
-    	<% infodisplay id=new infodisplay();
-    		id.display(request,response);%>
-    		<p><%out.print(session.getAttribute("bnd"));%></p>
-    		<p> <%//System.out.println(session.getAttribute("bnd"));%> </p>
-    	
+    	<jsp:include page="/infodisplay"/>
+    		<p>${bname}</p>
 			<form action="openbook" method="post">
 			<label>____________________________</label>
 			<input placeholder="enter book name to open" type="text" name="bname">
